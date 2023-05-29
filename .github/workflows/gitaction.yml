@@ -54,19 +54,32 @@ jobs:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
-  
+      
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-        with:
-          registries: "086230238707"
 
       - name: Build, tag, and push image to Amazon ECR
-        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: sample-app
+          IMAGE_TAG: ${{ steps.vars.outputs.sha_short }}
         run: |
-            chmod +x "${GITHUB_WORKSPACE}/.github/buildscript.sh"
-            ./.github/buildscript.sh ${{ env.ECR_REPOSITORY }} ${{ steps.vars.outputs.sha_short }}
-        shell: bash
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+  
+      # - name: Login to Amazon ECR
+      #   id: login-ecr
+      #   uses: aws-actions/amazon-ecr-login@v1
+      #   with:
+      #     registries: "086230238707"
+
+      # - name: Build, tag, and push image to Amazon ECR
+      #   id: build-image
+      #   run: |
+      #       chmod +x "${GITHUB_WORKSPACE}/.github/buildscript.sh"
+      #       ./.github/buildscript.sh ${{ env.ECR_REPOSITORY }} ${{ steps.vars.outputs.sha_short }}
+      #   shell: bash
         
       - name: Checkout k8s-env
         uses: actions/checkout@v3
