@@ -6,6 +6,7 @@ SERVICE=( "sample-app" )
 for SERVICE in ${SERVICE[@]}; do
     docker tag ${SERVICE}:latest $1/${SERVICE}:$2
     docker tag ${SERVICE}:latest $1/${SERVICE}:latest
+    docker images
     docker push $1/${SERVICE}:$2
     docker push $1/${SERVICE}:latest
 done
