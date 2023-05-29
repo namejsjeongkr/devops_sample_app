@@ -14,7 +14,7 @@ env:
   # Organization Secrets
   AWS_ACCESS_KEY_ID: ${{ secrets.PERSONAL_AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.PERSONAL_AWS_SECRET_ACCESS_KEY }}
-  AWS_ACCOUNT_ID: 086230238707
+  AWS_ACCOUNT_ID: "086230238707"
   ECR_REPOSITORY: 086230238707.dkr.ecr.ap-northeast-2.amazonaws.com
   AWS_REGION: ap-northeast-2 # AWS EKS & ECR이 위치한 AWS Region
   STAGE: demod_apnortheast2
