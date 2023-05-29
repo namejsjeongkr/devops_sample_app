@@ -59,7 +59,7 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         with:
-          registries: 086230238707
+          registries: "086230238707"
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
