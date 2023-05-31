@@ -4,12 +4,12 @@ import os
 # gitaction build test - 1
 app = Flask(__name__)
 
-# 루트 경로의 요청을 처리하는 함수
+# root path
 @app.route('/')
 def hello_world():
-    # 현재 실행 중인 Pod의 이름 가져오기
     print_name = "by @namejsjeongkr"
     pod_name = os.environ['HOSTNAME']
+    
     return pod_name + ' ' + print_name
 
 @app.route("/ping", methods=['GET'])
