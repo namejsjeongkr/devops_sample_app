@@ -4,7 +4,7 @@ import time
 
 count = 0
 
-while count < 10:
+while count < 60:
     print("Sleep for Lifecycle of Pod !!")
     time.sleep(1)
     count += 1
