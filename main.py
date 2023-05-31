@@ -10,7 +10,7 @@ def hello_world():
     # 현재 실행 중인 Pod의 이름 가져오기
     print_name = "by @namejsjeongkr"
     pod_name = os.environ['HOSTNAME']
-    return pod_name, print_name
+    return pod_name + ' ' + print_name
 
 @app.route("/ping", methods=['GET'])
 def ping():
