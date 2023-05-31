@@ -1,5 +1,13 @@
 from flask import Flask
 import os
+import time
+
+count = 0
+
+while count < 10:
+    print("Sleep for Lifecycle of Pod !!")
+    time.sleep(1)
+    count += 1
 
 # gitaction build test - 2
 app = Flask(__name__)
