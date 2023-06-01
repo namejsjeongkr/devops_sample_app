@@ -91,7 +91,7 @@ jobs:
           CI_COMMIT_AUTHOR: namejsjeongkr
         run: |
           git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-          git config --global user.email "namejsjeongkr@lguplus.co.kr"
+          git config --global user.email "namejsjeongkr@gmail.com"
           git status
           git add -A
           git commit -m "${{ env.CI_COMMIT_MESSAGE }}"
