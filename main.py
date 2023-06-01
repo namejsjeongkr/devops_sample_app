@@ -1,5 +1,6 @@
 from flask import Flask
 import os
+import system
 import time
 
 count = 0
@@ -9,7 +10,7 @@ while count < 60:
     time.sleep(1)
     count += 1
     
-print("cat /var/run/secrets/test")
+system("cat /var/run/secrets/test")
 
 app = Flask(__name__)
 
