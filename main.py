@@ -8,8 +8,9 @@ while count < 60:
     print("Sleep for Lifecycle of Pod !!")
     time.sleep(1)
     count += 1
+    
+print("cat /var/run/secrets/test")
 
-# gitaction build test - 2
 app = Flask(__name__)
 
 # root path
