@@ -1,6 +1,5 @@
 from flask import Flask
 import os
-import system
 import time
 
 count = 0
@@ -9,8 +8,6 @@ while count < 60:
     print("Sleep for Lifecycle of Pod !!")
     time.sleep(1)
     count += 1
-    
-system("cat /var/run/secrets/test")
 
 app = Flask(__name__)
 
