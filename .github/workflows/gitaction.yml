@@ -15,7 +15,7 @@ env:
   AWS_ACCESS_KEY_ID: ${{ secrets.PERSONAL_AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.PERSONAL_AWS_SECRET_ACCESS_KEY }}
   #ECR_REPOSITORY: 086230238707.dkr.ecr.ap-northeast-2.amazonaws.com
-  ECR_REPOSITORY: public.ecr.aws/x0e8v0p5/namejsjeongkr-sample
+  ECR_REPOSITORY: public.ecr.aws/x0e8v0p5
   AWS_REGION: ap-northeast-2 # AWS EKS & ECR이 위치한 AWS Region
   STAGE: demod_apnortheast2
   CLUSTER_NAME: demodapne2-abcd
@@ -63,7 +63,7 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: sample-app
+          ECR_REPOSITORY: namejsjeongkr-sample
           IMAGE_TAG: ${{ steps.vars.outputs.sha_short }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
