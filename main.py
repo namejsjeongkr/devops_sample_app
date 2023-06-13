@@ -14,7 +14,7 @@ app = Flask(__name__)
 # root path
 @app.route('/')
 def hello_world():
-    print_name = "by @namejsjeongkr - v2"
+    print_name = "by @namejsjeongkr - kftc"
     pod_name = os.environ['HOSTNAME']
     
     return pod_name + ' ' + print_name
